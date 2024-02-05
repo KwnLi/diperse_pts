@@ -6,11 +6,13 @@
 #' @export
 #'
 #' @examples
-mincircle <- function(n){
-  if(n<21){
-    out.r <- circle_pack[n,"min_r"]
-  }else{
-    out.r <- sqrt(n*1.35)
+mincircle <- Vectorize(
+  function(n){
+    if(n<21){
+      out.r <- circle_pack[n,"min_r"]
+    }else{
+      out.r <- sqrt(n*1.35)
+    }
+    return(out.r)
   }
-  return(out.r)
-}
+)
